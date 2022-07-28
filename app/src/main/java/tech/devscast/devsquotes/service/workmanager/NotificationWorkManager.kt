@@ -13,8 +13,6 @@ import tech.devscast.devsquotes.util.NotificationConstant
 
 class NotificationWorkManager(appContext: Context, workerParams: WorkerParameters) :
     CoroutineWorker(appContext, workerParams) {
-
-
     override suspend fun doWork(): Result {
         showNotification()
         return Result.success()
@@ -24,7 +22,6 @@ class NotificationWorkManager(appContext: Context, workerParams: WorkerParameter
         val intent = Intent(applicationContext, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-
         val pendingIntent: PendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val builder = NotificationCompat.Builder(
@@ -42,9 +39,7 @@ class NotificationWorkManager(appContext: Context, workerParams: WorkerParameter
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(applicationContext)) {
-            notify(NotificationConstant.ID,builder.build())
+            notify(NotificationConstant.ID, builder.build())
         }
     }
-
-
 }

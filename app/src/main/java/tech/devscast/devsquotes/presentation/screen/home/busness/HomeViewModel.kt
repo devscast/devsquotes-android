@@ -1,11 +1,10 @@
-package tech.devscast.devsquotes.presentation.screen.busness
+package tech.devscast.devsquotes.presentation.screen.home.busness
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
@@ -14,7 +13,6 @@ import kotlinx.coroutines.withContext
 import tech.devscast.devsquotes.data.repository.QuotesRepository
 import javax.inject.Inject
 
-@OptIn(InternalCoroutinesApi::class)
 @ExperimentalCoroutinesApi
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val quotesRepository: QuotesRepository) : ViewModel() {
